@@ -1,0 +1,16 @@
+strict digraph {
+    Resource0 [label="organization/<project>/dev"];
+    Resource0 -> Resource1 [color = "#AA6639"];
+    Resource3 [label="dev-<project>-bucket-123456789012-build"];
+    Resource3 -> Resource4 [color = "#246C60"];
+    Resource3 -> Resource1 [color = "#AA6639"];
+    Resource1 [label="pulumi-<project>"];
+    Resource9 [label="dev-<project>-bucket-123456789012"];
+    Resource9 -> Resource1 [color = "#AA6639"];
+    Resource9 -> Resource4 [color = "#246C60"];
+    Resource9 -> Resource10 [color = "#246C60", label = "create, delete, update"];
+    Resource4 [label="dev-<project>-bucket-123456789012-synced-folder"];
+    Resource4 -> Resource1 [color = "#AA6639"];
+    Resource10 [label="dev-<project>-bucket-123456789012-synced-folder-sync-command"];
+    Resource10 -> Resource4 [color = "#AA6639"];
+}

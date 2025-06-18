@@ -1,4 +1,5 @@
 import * as pulumi from "@pulumi/pulumi";
+import * as aws from "@pulumi/aws";
 
 export enum Environment {
   Production = "prod",
@@ -80,3 +81,8 @@ export const jstDate = (date: Date): string => {
 };
 
 export const NAME_PREFIX: string = `${pulumi.getStack()}-${pulumi.getProject()}`;
+
+const virginiaProviderId = `${NAME_PREFIX}-virginia-provider`;
+export const virginiaProvider = new aws.Provider(virginiaProviderId, {
+  region: "us-east-1",
+});
