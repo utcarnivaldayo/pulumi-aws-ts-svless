@@ -5,6 +5,8 @@ import { ipRestriction } from 'hono/ip-restriction';
 import { logger } from "hono/logger";
 import { type CloudFrontRequest, type Callback, getConnInfo } from 'hono/lambda-edge';
 
+import { xAmzContentSha256Middleware } from "./middleware/x-amz-content-sha256";
+
 type Bindings = {
   callback: Callback
   request: CloudFrontRequest
@@ -42,6 +44,8 @@ if (process.env.ENABLE_IP_RESTRICTION === "true") {
     )
   )
 }
+
+app.use("/api/*", xAmzContentSha256Middleware);
 
 app.all("*", async (c, next) => {
   await next();
