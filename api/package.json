@@ -13,7 +13,7 @@
   },
   "name": "api",
   "scripts": {
-    "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node22 --external:@aws-sdk/* ./src/lambda.cts",
+    "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node22 --external:@aws-sdk/* --external:cloudflare:workers ./src/lambda.cts",
     "dev": "tsx watch src/node.ts",
     "zip": "zip -j lambda.zip dist/index.js"
   },

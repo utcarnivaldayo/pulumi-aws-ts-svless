@@ -88,7 +88,7 @@ export const apiLambda = new aws.lambda.Function(apiLambdaId, {
 });
 
 export const apiLambdaUrl = new aws.lambda.FunctionUrl(`${apiLambdaId}-url`, {
-  authorizationType: "NONE",
+  authorizationType: "AWS_IAM",
   functionName: apiLambda.name,
   invokeMode: "BUFFERED",
 });
