@@ -4,6 +4,7 @@ import * as fs from "node:fs";
 import { local } from "@pulumi/command";
 
 import { NAME_PREFIX, selfStack, jstDate } from "../../utils";
+import { dsqlAccessPolicy } from "./dsql";
 
 export const apiLambdaId: string = `${NAME_PREFIX}-api-lambda`;
 
@@ -26,6 +27,14 @@ const apiLambdaRole = new aws.iam.Role(`${apiLambdaId}-role`, {
   ],
   name: `${apiLambdaId}-role`,
 });
+
+const dsqlRolePolicyAttachment = new aws.iam.RolePolicyAttachment(
+  `${apiLambdaId}-dsql-role-attachment`,
+  {
+     role: apiLambdaRole.name,
+     policyArn: dsqlAccessPolicy.arn,
+  },
+);
 
 const API_DIR = "api";
 const DIST_DIR = "dist";
@@ -58,6 +67,10 @@ export const apiLambda = new aws.lambda.Function(apiLambdaId, {
       AWS_LAMBDA_EXEC_WRAPPER: "/opt/otel-instrument",
       // NOTE: CloudFront リソースが作成されて、次回以降の pulumi up で参照可能
       CLOUD_FRONT_URL: selfStack.getOutput("CLOUD_FRONT_URL"),
+      PG_USER: "lambda", // データベースロールの名前
+      PG_HOST: selfStack.getOutput("DSQL_CLUSTER_ENDPOINT"),
+      PG_PORT: "5432",
+      PG_DATABASE: "postgres",
     },
   },
   code: apiBuildCommand.stdout.apply((_) => {
@@ -97,3 +110,5 @@ export const API_LAMBDA_FUNCTION_URL = apiLambdaUrl.functionUrl.apply((url: stri
   // NOTE: url の末尾の / を消す
   return url.replace(/\/$/, '');
 });
+
+export const API_LAMBDA_ROLE_ARN = pulumi.interpolate`${apiLambdaRole.arn}`;

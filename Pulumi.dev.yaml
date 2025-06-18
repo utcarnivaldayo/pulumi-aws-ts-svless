@@ -2,11 +2,12 @@ encryptionsalt: v1:S4fvtzf1qAw=:v1:Z9PLNeytRVjb/D8/:3WyI1WuS+pbeBtXiTAYo12xh3R17
 config:
   stack:aws-account-id: "123456789012"
   aws:region: ap-northeast-1
-  edge-auth:enable-basic-auth: true
+  edge-auth:enable-basic-auth: "true"
   edge-auth:basic-auth-username: dev
   edge-auth:basic-auth-password:
     secure: v1:5HoYtV9k7PggtoGj:uO0xnNMUy+WJ14FAqFuQVvHK+C1hLYiu
-  edge-ip-restriction:enable-ip-restriction: false
+  edge-ip-restriction:enable-ip-restriction: "false"
   edge-ip-restriction:allow-ip-list:
     - 123.456.789.123
     - 123.456.789.124
+  aws-native:region: ap-northeast-1
