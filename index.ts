@@ -1,9 +1,5 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+import "./client/aws/s3";
+export { CLIENT_BUCKET_NAME, EXISTS_CLIENT_DIST } from "./client/aws/s3";
 
-// Create an AWS resource (S3 Bucket)
-const bucket = new aws.s3.BucketV2("my-bucket");
-
-// Export the name of the bucket
-export const bucketName = bucket.id;
+import "./network/aws/cloudfront";
+export { CLOUD_FRONT_URL } from "./network/aws/cloudfront";
