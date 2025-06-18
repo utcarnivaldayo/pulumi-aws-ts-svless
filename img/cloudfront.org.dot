@@ -1,0 +1,34 @@
+strict digraph {
+    Resource0 [label="pulumi-aws-ts-svless-dev"];
+    Resource1 [label="default_1_1_0"];
+    Resource2 [label="default_6_83_0"];
+    Resource3 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012"];
+    Resource3 -> Resource0 [color = "#AA6639"];
+    Resource3 -> Resource4 [color = "#246C60", label = "name"];
+    Resource3 -> Resource5 [color = "#246C60", label = "create, delete, update"];
+    Resource3 -> Resource6 [color = "#246C60"];
+    Resource3 -> Resource7 [color = "#246C60", label = "origins, defaultCacheBehavior"];
+    Resource3 -> Resource8 [color = "#246C60", label = "bucket, policy"];
+    Resource9 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-build"];
+    Resource9 -> Resource0 [color = "#AA6639"];
+    Resource9 -> Resource6 [color = "#246C60"];
+    Resource4 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-oac"];
+    Resource4 -> Resource0 [color = "#AA6639"];
+    Resource4 -> Resource7 [color = "#246C60", label = "origins"];
+    Resource10 [label="default_5_42_0"];
+    Resource5 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-synced-folder-sync-command"];
+    Resource5 -> Resource6 [color = "#AA6639"];
+    Resource11 [label="organization/pulumi-aws-ts-svless/dev"];
+    Resource11 -> Resource9 [color = "#246C60", label = "triggers"];
+    Resource11 -> Resource0 [color = "#AA6639"];
+    Resource6 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-synced-folder"];
+    Resource6 -> Resource0 [color = "#AA6639"];
+    Resource7 [label="dev-pulumi-aws-ts-svless-distribution"];
+    Resource7 -> Resource0 [color = "#AA6639"];
+    Resource7 -> Resource8 [color = "#246C60", label = "policy"];
+    Resource8 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-policy"];
+    Resource8 -> Resource0 [color = "#AA6639"];
+    Resource12 [label="default"];
+    Resource13 [label="default_0_11_1"];
+    Resource14 [label="default_0_8_1"];
+}

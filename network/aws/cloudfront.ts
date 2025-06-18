@@ -3,6 +3,7 @@ import * as aws from "@pulumi/aws";
 
 import { NAME_PREFIX, createTags } from "../../utils";
 import { clientBucketId, clientBucket } from "../../client/aws/s3";
+import { viewerRequestLambda } from "../../edge/aws/viewer-request-lambda";
 
 // client S3 bucket OAC
 const clientBucketOac = new aws.cloudfront.OriginAccessControl(
@@ -41,6 +42,13 @@ export const distribution = new aws.cloudfront.Distribution(distributionId, {
     targetOriginId: clientBucket.bucket,
     viewerProtocolPolicy: "https-only",
     cachePolicyId: MANAGED_CACHE_CACHING_OPTIMIZED,
+    lambdaFunctionAssociations: [
+      {
+           eventType: "viewer-request",
+           lambdaArn: viewerRequestLambda.qualifiedArn,
+           includeBody: true,
+      },
+    ],
   },
   defaultRootObject: "index.html",
   enabled: true,

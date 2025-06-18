@@ -1,0 +1,22 @@
+strict digraph {
+    Resource0 [label="organization/pulumi-aws-ts-svless/dev"];
+    Resource0 -> Resource1 [color = "#AA6639"];
+    Resource2 [label="default_1_1_0"];
+    Resource3 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-build"];
+    Resource3 -> Resource4 [color = "#246C60"];
+    Resource3 -> Resource1 [color = "#AA6639"];
+    Resource5 [label="default_5_42_0"];
+    Resource6 [label="default_0_8_1"];
+    Resource1 [label="pulumi-aws-ts-svless-dev"];
+    Resource7 [label="default"];
+    Resource8 [label="default_6_83_0"];
+    Resource9 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012"];
+    Resource9 -> Resource1 [color = "#AA6639"];
+    Resource9 -> Resource4 [color = "#246C60"];
+    Resource9 -> Resource10 [color = "#246C60", label = "create, delete, update"];
+    Resource11 [label="default_0_11_1"];
+    Resource4 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-synced-folder"];
+    Resource4 -> Resource1 [color = "#AA6639"];
+    Resource10 [label="dev-pulumi-aws-ts-svless-client-bucket-123456789012-synced-folder-sync-command"];
+    Resource10 -> Resource4 [color = "#AA6639"];
+}

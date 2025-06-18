@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "hono": "^4.7.11"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.4"
+  },
+  "name": "edge",
+  "scripts": {
+    "build": "esbuild --bundle --outfile=./dist/index.js --platform=node --target=node22 --external:@aws-sdk/* --external:cloudflare:workers --define:process.env.ENABLE_BASIC_AUTH=\\\"${ENABLE_BASIC_AUTH}\\\" --define:process.env.BASIC_AUTH_USERNAME=\\\"${BASIC_AUTH_USERNAME}\\\" --define:process.env.BASIC_AUTH_PASSWORD=\\\"${BASIC_AUTH_PASSWORD}\\\" --define:process.env.ENABLE_IP_RESTRICTION=\\\"${ENABLE_IP_RESTRICTION}\\\" --define:process.env.IP_RESTRICTION_ALLOW_IP_LIST=\\\"${IP_RESTRICTION_ALLOW_IP_LIST}\\\" ./src/index.ts",
+    "zip": "zip -j lambda.zip dist/index.js"
+  },
+  "type": "module"
+}
