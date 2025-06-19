@@ -1,13 +1,18 @@
 {
   "dependencies": {
+    "@aws-sdk/dsql-signer": "^3.830.0",
     "@hono/swagger-ui": "^0.5.2",
     "@hono/zod-openapi": "^0.19.8",
+    "drizzle-orm": "^0.44.2",
     "hono": "^4.7.11",
+    "pg": "^8.16.0",
     "zod": "^3.25.67"
   },
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.44.2",
     "@hono/node-server": "^1.14.4",
+    "@types/pg": "^8.15.4",
+    "drizzle-kit": "^0.31.1",
     "esbuild": "^0.21.4",
     "tsx": "^4.20.3"
   },

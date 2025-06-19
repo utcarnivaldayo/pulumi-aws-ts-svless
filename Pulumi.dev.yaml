@@ -10,3 +10,4 @@ config:
   edge-ip-restriction:allow-ip-list:
     - 123.456.789.123
     - 123.456.789.124
+  aws-native:region: ap-northeast-1
