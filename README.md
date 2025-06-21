@@ -1,61 +1,25 @@
- # AWS TypeScript Pulumi Template
+# Pulumi AWS TS SVLESS
 
- A minimal Pulumi template for provisioning AWS infrastructure using TypeScript. This template creates an Amazon S3 bucket and exports its name.
+## 概要
 
- ## Prerequisites
+本リポジトリは、Zenn で公開されている本、[「もう TypeScript だけでいい。次世代 IaC Pulumi で最高の体験にする AWS サーバレスアプリ開発」](https://zenn.dev/books/pulumi-lambadlith)のソースコードをまとめたリポジトリです。
 
- - Pulumi CLI (>= v3): https://www.pulumi.com/docs/get-started/install/
- - Node.js (>= 14): https://nodejs.org/
- - AWS credentials configured (e.g., via `aws configure` or environment variables)
+## インストール手順
 
- ## Getting Started
+Devbox は開発用の独立したシェルを簡単に作成できるコマンドラインツールで、`node`や`pnpm`、`pulumi` の管理のために使用しています。
 
- 1. Initialize a new Pulumi project:
+下記コマンドで、`devbox`をインストール可能です。
 
-    ```bash
-    pulumi new aws-typescript
-    ```
+```sh
+curl -fsSL https://get.jetify.com/devbox | bash
+```
 
-    Follow the prompts to set your:
-    - Project name
-    - Project description
-    - AWS region (defaults to `us-east-1`)
+`install`コマンドを実施することで、必要なツールがインストールされます。
 
- 2. Preview and deploy your infrastructure:
+```sh:bash
+devshell install
+```
 
-    ```bash
-    pulumi preview
-    pulumi up
-    ```
+## コミュニティ
 
- 3. When you're finished, tear down your stack:
-
-    ```bash
-    pulumi destroy
-    pulumi stack rm
-    ```
-
- ## Project Layout
-
- - `Pulumi.yaml` — Pulumi project and template metadata
- - `index.ts` — Main Pulumi program (creates an S3 bucket)
- - `package.json` — Node.js dependencies
- - `tsconfig.json` — TypeScript compiler options
-
- ## Configuration
-
- | Key           | Description                             | Default     |
- | ------------- | --------------------------------------- | ----------- |
- | `aws:region`  | The AWS region to deploy resources into | `us-east-1` |
-
- Use `pulumi config set <key> <value>` to customize configuration.
-
- ## Next Steps
-
- - Extend `index.ts` to provision additional resources (e.g., VPCs, Lambda functions, DynamoDB tables).
- - Explore [Pulumi AWSX](https://www.pulumi.com/docs/reference/pkg/awsx/) for higher-level AWS components.
- - Consult the [Pulumi documentation](https://www.pulumi.com/docs/) for more examples and best practices.
-
- ## Getting Help
-
- If you encounter any issues or have suggestions, please open an issue in this repository.
+- バグなどの報告は GitHub の Issue か、[「もう TypeScript だけでいい。次世代 IaC Pulumi で最高の体験にする AWS サーバレスアプリ開発」の Zenn スクラップ](https://zenn.dev/utcarnivaldayo/scraps/cd28111f0b6489) に報告をお願いします。
